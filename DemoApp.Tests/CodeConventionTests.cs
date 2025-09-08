@@ -33,13 +33,19 @@ namespace DemoApp.Tests
             process.WaitForExit();
 
             // Only fail on your defined convention errors
-            var conventionErrors = new[] { "CS8981", "IDE0042", "xUnit2020" };
-            bool hasConventionViolation = conventionErrors.Any(w => output.Contains(w) || error.Contains(w));
+            //var conventionErrors = new[] { "CS8981", "IDE0042", "xUnit2020" };
+            //bool hasConventionViolation = conventionErrors.Any(w => output.Contains(w) || error.Contains(w));
 
-            if (process.ExitCode != 0 || hasConventionViolation)
+            //if (process.ExitCode != 0 || hasConventionViolation)
+            //{
+            //    // xUnit way to fail a test
+            //    Assert.True(false, $"Code convention violations found:\n{output}\n{error}");
+            //}
+            var conventionErrors = new[] { "CS8981", "IDE0042", "xUnit2020" };
+
+            if (process.ExitCode != 0 || conventionErrors.Any(w => output.Contains(w) || error.Contains(w)))
             {
-                // xUnit way to fail a test
-                Assert.True(false, $"Code convention violations found:\n{output}\n{error}");
+                throw new Xunit.Sdk.XunitException($"Code convention violations found:\n{output}\n{error}");
             }
         }
     }

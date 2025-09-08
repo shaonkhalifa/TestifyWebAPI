@@ -20,7 +20,7 @@ namespace DemoApp.Tests.ControllersTests
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(5, result.Count());
+            Assert.Equal(50, result.Count());
             Assert.All(result, item => Assert.IsType<WeatherForecast>(item));
         }
     }
