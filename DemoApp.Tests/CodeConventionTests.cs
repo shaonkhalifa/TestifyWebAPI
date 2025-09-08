@@ -10,7 +10,11 @@ namespace DemoApp.Tests
         [Fact]
         public void Code_Should_Follow_Convention_Rules()
         {
-            // Get absolute path to solution
+            //var solutionPath = Path.Combine(
+            //        Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName,
+            //        "DemoApp.sln"
+            //    );
+
             var solutionPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "DemoApp.sln"));
 
             var process = new Process
