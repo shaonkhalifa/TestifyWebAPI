@@ -1,6 +1,6 @@
 ﻿namespace DemoApp.Services
 {
-    public class rsestclass
+    public class Testclass
     {
         int Number = 10;
     }
