@@ -10,11 +10,7 @@ namespace DemoApp.Tests
         [Fact]
         public void Code_Should_Follow_Convention_Rules()
         {
-            //var solutionPath = Path.Combine(
-            //        Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName,
-            //        "DemoApp.sln"
-            //    );
-
+          
             var solutionPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "DemoApp.sln"));
 
             var process = new Process
@@ -35,8 +31,12 @@ namespace DemoApp.Tests
             string error = process.StandardError.ReadToEnd();
             process.WaitForExit();
 
-            Assert.True(process.ExitCode == 0,
-                $"Code style violations found:\n{output}\n{error}");
+            if (process.ExitCode != 0 || output.Contains("warning CS8981") || output.Contains("error"))
+            {
+                Assert.True(false, $"Code style violations found:\n{output}\n{error}");
+            }
+
+
         }
     }
 }
