@@ -2,7 +2,11 @@ root = true
 
 [*.cs]
 
-# Require PascalCase for classes, methods, and properties
+##############
+# NAMING RULES
+##############
+
+# Require PascalCase for classes
 dotnet_naming_rule.classes_should_be_pascal_case.severity = error
 dotnet_naming_rule.classes_should_be_pascal_case.symbols = classes
 dotnet_naming_rule.classes_should_be_pascal_case.style = pascal_case_style
@@ -10,9 +14,7 @@ dotnet_naming_rule.classes_should_be_pascal_case.style = pascal_case_style
 dotnet_naming_symbols.classes.applicable_kinds = class
 dotnet_naming_style.pascal_case_style.capitalization = pascal_case
 
-
-
-# Require camelCase for locals
+# Require camelCase for local variables
 dotnet_naming_rule.locals_should_be_camel_case.severity = error
 dotnet_naming_rule.locals_should_be_camel_case.symbols = locals
 dotnet_naming_rule.locals_should_be_camel_case.style = camel_case_style
@@ -20,5 +22,35 @@ dotnet_naming_rule.locals_should_be_camel_case.style = camel_case_style
 dotnet_naming_symbols.locals.applicable_kinds = local
 dotnet_naming_style.camel_case_style.capitalization = camel_case
 
-# Require async methods to end with "Async"
+# Require PascalCase for methods
+dotnet_naming_rule.methods_should_be_pascal_case.severity = error
+dotnet_naming_rule.methods_should_be_pascal_case.symbols = methods
+dotnet_naming_rule.methods_should_be_pascal_case.style = pascal_case_style
+
+dotnet_naming_symbols.methods.applicable_kinds = method
+
+##############
+# ASYNC RULES
+##############
+
+# Async methods must end with 'Async'
 dotnet_diagnostic.IDE0042.severity = error
+
+##############
+# CODE WARNINGS AS ERRORS
+##############
+
+# Unused variables
+dotnet_diagnostic.CS0414.severity = error
+
+# Nullable reference warnings
+#dotnet_diagnostic.CS8603.severity = error
+
+# Type names with only lowercase ASCII
+dotnet_diagnostic.CS8981.severity = error
+
+# xUnit rule: do not use Assert.True(false, message)
+dotnet_diagnostic.xUnit2020.severity = error
+
+# Treat other common warnings as errors (optional)
+dotnet_warning_as_error = true

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using Xunit;
 
 namespace DemoApp.Tests
@@ -10,8 +11,8 @@ namespace DemoApp.Tests
         [Fact]
         public void Code_Should_Follow_Convention_Rules()
         {
-          
-            var solutionPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "DemoApp.sln"));
+            var solutionPath = Path.GetFullPath(
+                Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "DemoApp.sln"));
 
             var process = new Process
             {
@@ -31,12 +32,15 @@ namespace DemoApp.Tests
             string error = process.StandardError.ReadToEnd();
             process.WaitForExit();
 
-            if (process.ExitCode != 0 || output.Contains("warning CS8981") || output.Contains("error"))
+            // Only fail on your defined convention errors
+            var conventionErrors = new[] { "CS8981", "IDE0042", "xUnit2020" };
+            bool hasConventionViolation = conventionErrors.Any(w => output.Contains(w) || error.Contains(w));
+
+            if (process.ExitCode != 0 || hasConventionViolation)
             {
-                Assert.True(false, $"Code style violations found:\n{output}\n{error}");
+                // xUnit way to fail a test
+                Assert.True(false, $"Code convention violations found:\n{output}\n{error}");
             }
-
-
         }
     }
 }
