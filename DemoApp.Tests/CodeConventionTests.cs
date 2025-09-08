@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using Xunit;
 
 namespace DemoApp.Tests
 {
@@ -12,12 +10,15 @@ namespace DemoApp.Tests
         [Fact]
         public void Code_Should_Follow_Convention_Rules()
         {
+            // Get absolute path to solution
+            var solutionPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "DemoApp.sln"));
+
             var process = new Process
             {
                 StartInfo = new ProcessStartInfo
                 {
                     FileName = "dotnet",
-                    Arguments = "build --no-restore -warnaserror",
+                    Arguments = $"build \"{solutionPath}\" --no-restore -warnaserror",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false,

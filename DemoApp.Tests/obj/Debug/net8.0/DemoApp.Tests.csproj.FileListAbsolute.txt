@@ -437,3 +437,4 @@ C:\Users\mdsha\OneDrive\Desktop\Testing\DemoApp\DemoApp.Tests\obj\Debug\net8.0\r
 C:\Users\mdsha\OneDrive\Desktop\Testing\DemoApp\DemoApp.Tests\obj\Debug\net8.0\DemoApp.Tests.pdb
 C:\Users\mdsha\OneDrive\Desktop\Testing\DemoApp\DemoApp.Tests\obj\Debug\net8.0\DemoApp.Tests.genruntimeconfig.cache
 C:\Users\mdsha\OneDrive\Desktop\Testing\DemoApp\DemoApp.Tests\obj\Debug\net8.0\ref\DemoApp.Tests.dll
+C:\Users\mdsha\OneDrive\Desktop\Testing\DemoApp\DemoApp.Tests\obj\Debug\net8.0\DemoApp.Tests.sourcelink.json

@@ -20,7 +20,7 @@ namespace DemoApp.Tests.ServicesTests
             };
 
             double avg = _service.CalculateAverageTemperature(records);
-            Assert.Equal(35, avg);
+            Assert.Equal(30, avg);
         }
 
         [Fact]

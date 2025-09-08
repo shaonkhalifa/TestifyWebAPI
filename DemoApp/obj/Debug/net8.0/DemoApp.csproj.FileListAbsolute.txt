@@ -30,3 +30,4 @@ C:\Users\mdsha\OneDrive\Desktop\Testing\DemoApp\DemoApp\obj\Debug\net8.0\refint\
 C:\Users\mdsha\OneDrive\Desktop\Testing\DemoApp\DemoApp\obj\Debug\net8.0\DemoApp.pdb
 C:\Users\mdsha\OneDrive\Desktop\Testing\DemoApp\DemoApp\obj\Debug\net8.0\DemoApp.genruntimeconfig.cache
 C:\Users\mdsha\OneDrive\Desktop\Testing\DemoApp\DemoApp\obj\Debug\net8.0\ref\DemoApp.dll
+C:\Users\mdsha\OneDrive\Desktop\Testing\DemoApp\DemoApp\obj\Debug\net8.0\DemoApp.sourcelink.json
