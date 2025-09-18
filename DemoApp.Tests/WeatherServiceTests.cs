@@ -36,5 +36,26 @@ namespace DemoApp.Tests.ServicesTests
             string hottest = _service.GetHottestCity(records);
             Assert.Equal("Hot", hottest);
         }
+
+        [Theory]
+        [InlineData(20, "Mild", 5, "Freezing", 15, "Cool", "Freezing")]
+        [InlineData(30, "Warm", 25, "Pleasant", 40, "Hot", "Pleasant")]
+        [InlineData(10, "Chilly", 10, "Frosty", 10, "Cold", "Chilly")] 
+        public void GetColdestCity_ShouldReturnLowestTemperatureSummary(int temp1, string summary1, int temp2, string summary2,int temp3, string summary3, string expected)
+        {
+
+            var records = new List<WeatherForecast>
+            {
+                new WeatherForecast { TemperatureC = temp1, Summary = summary1 },
+                new WeatherForecast { TemperatureC = temp2, Summary = summary2 },
+                new WeatherForecast { TemperatureC = temp3, Summary = summary3 }
+            };
+
+
+            string coldest = _service.GetColdestCity(records);
+
+            Assert.Equal(expected, coldest);
+        }
+
     }
 }
