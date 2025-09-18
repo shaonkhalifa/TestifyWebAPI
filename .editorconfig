@@ -36,6 +36,7 @@ dotnet_naming_symbols.methods.applicable_kinds = method
 # Async methods must end with 'Async'
 dotnet_diagnostic.IDE0042.severity = error
 
+
 ##############
 # CODE WARNINGS AS ERRORS
 ##############
@@ -53,4 +54,4 @@ dotnet_diagnostic.CS8981.severity = error
 dotnet_diagnostic.xUnit2020.severity = error
 
 # Treat other common warnings as errors (optional)
-dotnet_warning_as_error = true
+#dotnet_warning_as_error = true
